@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+#gameWindow{
+	width:980px;
+	height:600px;
+	position:relative;
+	overflow:hidden;
+	margin:0 auto;
+	text-align:center;
+	background-image: url("playWindow.jpg");
+	background-repeat: no-repeat;
+}
+.otherWindows {
+	width:980px;
+	height:600px;
+	position:absolute;
+	z-index:100;
+	top:0;
+	text-align:center;
+}
+#howToWindow{
+	visibility:hidden;
+}
+#loseWindow{
+	visibility:hidden;
+}
+#winWindow{
+	visibility:hidden;
+}
+/*------------------- buttons -------------*/ 
+#playButton{
+	position:absolute;
+	bottom:20px;
+	left:700px;
+	cursor:pointer;
+	width:90px;
+}
+#playButton2{
+	position:absolute;
+	bottom:20px;
+	left:700px;
+	cursor:pointer;
+	width:90px;
+}
+#howToButton{
+	position:absolute;
+	bottom:20px;
+	left:810px;
+	cursor:pointer;
+	width:90px;
+}
+#menuButton{
+	position:absolute;
+	bottom:20px;
+	left:810px;
+	cursor:pointer;
+	width:90px;
+}
+#menuButton2{
+	position:absolute;
+	bottom:20px;
+	left:700px;
+	cursor:pointer;
+	width:90px;
+}
+#menuButton3{
+	position:absolute;
+	bottom:20px;
+	left:700px;
+	cursor:pointer;
+	width:90px;
+}
+#losePlayAgainButton{
+	position:absolute;
+	bottom:20px;
+	left:810px;
+	cursor:pointer;
+	width:90px;
+}
+#winPlayAgainButton{
+	position:absolute;
+	bottom:20px;
+	left:810px;
+	cursor:pointer;
+	width:90px;
+}
+/*------------------- playWindow -------------*/ 
+.userThrows{
+	visibility:hidden;
+	width:550px;
+	position:absolute;
+	left:540px;
+	top:180px;
+}
+.computerThrows{
+	visibility:hidden;
+	width:550px;
+	position:absolute;
+	left: -100px;
+	top:180px;
+}
+
+#score {
+	color: purple;
+	position:absolute;
+	left:875px;
+	top:70px;
+	font-size:70px;
+	font-family:avenir;
+}
+
+#score2 {
+	color: purple;
+	position:absolute;
+	left:150px;
+	top:70px;
+	font-size:70px;
+	font-family:avenir;
+}
+
+#tie {
+	color: #ff4c2e;
+	position:absolute;
+	left:400px;
+	top:70px;
+	font-size:70px;
+	visibility:hidden;
+	font-family:avenir;
+	opacity:0.7;
+}
+
+#instructionReminder {
+	color: purple;
+	position:absolute;
+	font-size:15px;
+	left:390px;
+	top:10px;
+	font-family:avenir;
+}
