@@ -1,0 +1,255 @@
+//Score Box
+var scoreBox = document.getElementById("score");
+var scoreBox2 = document.getElementById("score2");
+var score = 0;
+var score2 = 0;
+
+function changeScore(){
+	score++;
+	console.log(score);
+	scoreBox.innerHTML = score;
+	if(score == 3){
+	showWinWindow();
+	}
+}
+
+function changeScore2(){
+	score2++;
+	console.log(score);
+	scoreBox2.innerHTML = score2;
+	if(score2 == 3){
+	showLoseWindow();
+	}
+}
+
+
+//windows
+var startWindow = document.getElementById("startWindow");
+var howToWindow = document.getElementById("howToWindow");
+var loseWindow = document.getElementById("loseWindow");
+var winWindow = document.getElementById("winWindow");
+
+//buttons
+var playButton = document.getElementById("playButton");
+var howToButton = document.getElementById("howToButton");
+var playButton2 = document.getElementById("playButton2");
+var menuButton = document.getElementById("menuButton");
+var loseBackToStartButton = document.getElementById("menuButton2");
+var loseplayAgainButton = document.getElementById("losePlayAgainButton");
+var winBackToStartButton = document.getElementById("menuButton3");
+var winPlayAgainButton = document.getElementById("winPlayAgainButton");
+
+//audio
+var buttonSound = document.getElementById("coin");
+var loserSound = document.getElementById("loser");
+var winnerSound = document.getElementById("winner");
+
+//startWindow
+playButton.addEventListener("click",hideStart);
+
+function hideStart(){
+	startWindow.style.visibility = "hidden";
+	buttonSound.play();
+}
+
+howToButton.addEventListener("click",showhowTo);
+
+function showhowTo(){
+	howToWindow.style.visibility = "visible";
+	buttonSound.play();
+}
+
+//howToWindow
+playButton2.addEventListener("click",hidehowToStart);
+
+function hidehowToStart(){
+	howToWindow.style.visibility = "hidden";
+	startWindow.style.visibility = "hidden";
+	buttonSound.play();
+}
+
+menuButton.addEventListener("click",hidehowTo);
+
+function hidehowTo(){
+	howToWindow.style.visibility = "hidden";
+	startWindow.style.visibility = "visible";
+	buttonSound.play();
+}
+
+//loseWindow
+loseBackToStartButton.addEventListener("click",hideLose);
+
+function hideLose(){
+	loseWindow.style.visibility = "hidden";
+	startWindow.style.visibility = "visible";
+	buttonSound.play();
+}
+
+losePlayAgainButton.addEventListener("click",hideLosehowToStart);
+
+function hideLosehowToStart(){
+	loseWindow.style.visibility = "hidden";
+	howToWindow.style.visibility = "hidden";
+	startWindow.style.visibility = "hidden";
+	tie.style.visbility = "hidden";
+	score=0;
+	scoreBox.innerHTML = score;
+	score2=0;
+	scoreBox2.innerHTML = score;
+	buttonSound.play();
+}
+
+//winWindow 
+winBackToStartButton.addEventListener("click",hideWinLosehowTo);
+		
+function hideWinLosehowTo(){
+	winWindow.style.visibility = "hidden";
+	loseWindow.style.visibility = "hidden";
+	howToWindow.style.visibility = "hidden";
+	startWindow.style.visibility = "visible";
+	buttonSound.play();
+}
+
+winPlayAgainButton.addEventListener("click",hideWinLosehowToStart);
+
+function hideWinLosehowToStart(){
+	winWindow.style.visibility = "hidden";
+	loseWindow.style.visibility = "hidden";
+	howToWindow.style.visibility = "hidden";
+	startWindow.style.visibility = "hidden";
+	tie.style.visbility = "hidden";
+	score=0;
+	scoreBox.innerHTML = score;
+	score2=0;
+	scoreBox2.innerHTML = score;
+	buttonSound.play();
+}
+
+
+//show win & lose windows after they have lost or won.
+function showWinWindow(){
+	winWindow.style.visibility = "visible";
+	tie.style.visbility = "hidden";
+	score=0;
+	scoreBox.innerHTML = score;
+	score2=0;
+	scoreBox2.innerHTML = score;
+	buttonSound.play();
+}
+
+function showLoseWindow(){
+	loseWindow.style.visibility = "visible";
+	tie.style.visbility = "hidden";
+	score=0;
+	scoreBox.innerHTML = score;
+	score2=0;
+	scoreBox2.innerHTML = score;
+	buttonSound.play();
+}
+
+
+//audio sounds for win/lose
+function playWinnerSound(){
+	winnerSound.play();
+}
+function playLoserSound(){
+	loserSound.play();
+}
+
+//playWindow
+var rock = document.getElementById("rock");
+var paper = document.getElementById("paper");
+var scissors = document.getElementById("scissors");
+var rock2 = document.getElementById("rock2");
+var paper2 = document.getElementById("paper2");
+var scissors2 = document.getElementById("scissors2");
+var tie = document.getElementById("tie");
+
+//COMPARE COMPUTER CHOICE & USER CHOICE
+function computerChoice(){
+var computerChoiceThrow = Math.floor(Math.random() * 3) + 1;
+console.log(Math.floor(userChoiceThrow));
+
+	if (computerChoiceThrow == 1 ){
+		rock2.style.visibility = "visible";
+		paper2.style.visibility = "hidden";
+		scissors2.style.visibility = "hidden";
+	}
+ 	else if (computerChoiceThrow == 2){
+ 	 		rock2.style.visibility = "hidden";
+		    paper2.style.visibility = "visible";
+		    scissors2.style.visibility = "hidden";
+	}
+ 	else {
+ 	 		rock2.style.visibility = "hidden";
+		    paper2.style.visibility = "hidden";
+		    scissors2.style.visibility = "visible";
+ 	}
+ 	if (userChoiceThrow == computerChoiceThrow) {
+		console.log("It's a tie!");
+		tie.style.visibility = "visible";
+	} else if (((userChoiceThrow == 1) && (computerChoiceThrow == 3)) || ((userChoiceThrow == 2) && (computerChoiceThrow == 1)) || ((userChoiceThrow == 3) && (computerChoiceThrow == 2))) {
+	    console.log("Winner!");
+	    changeScore();
+	    playWinnerSound();
+	    tie.style.visibility = "hidden";
+	} else { 
+	   console.log("Loser!");
+	   changeScore2();
+	   playLoserSound();
+	   tie.style.visibility = "hidden";
+	}
+}
+
+
+//USER CHOICE 
+var userChoiceThrow;
+
+//keys
+var upArrowDown = false;
+var downArrowDown = false;
+var leftArrowDown = false;
+
+document.addEventListener("keydown", function(eventInfo) {
+	console.log(eventInfo.keyCode);
+	switch(eventInfo.keyCode) {
+		case 38:
+			upArrowDown = true;
+			userChoiceThrow = 1;
+			rock.style.visibility = "visible";
+			paper.style.visibility = "hidden";
+			scissors.style.visibility = "hidden";
+		break;
+		case 40:
+			downArrowDown = true;
+			userChoiceThrow = 2;
+			rock.style.visibility = "hidden";
+			paper.style.visibility = "visible";
+			scissors.style.visibility = "hidden";
+		break;
+		case 37:
+			leftArrowDown = true;
+			userChoiceThrow = 3;
+			rock.style.visibility = "hidden";
+			paper.style.visibility = "hidden";
+			scissors.style.visibility = "visible";
+		break;
+	}
+});
+document.addEventListener("keyup", function(eventInfo) {
+	console.log(eventInfo.keyCode);
+	switch(eventInfo.keyCode) {
+		case 38: 
+		computerChoice();
+			upArrowDown = false;
+		break;
+		case 40:
+		computerChoice();
+			downArrowDown = false;
+		break;
+		case 37:
+		computerChoice();
+			leftArrowDown = false;
+		break;
+	}
+});
