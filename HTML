@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Rock, Paper, Scissors</title>
+
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+
+	</head>
+
+	<body>
+		<div id="gameWindow">
+		<div id="score">0</div>
+		<div id="score2">0</div>
+		<div id="tie">It's a tie!</div>
+		<div id="instructionReminder"><i><b>*Key Reminder*</b> : ^ Rock , V Paper, < Scissors<i/></div>
+		<img src="rock.jpg" id="rock" class="userThrows"/>
+		<img src="paper.jpg" id="paper" class="userThrows"/>
+		<img src="scissors.jpg" id="scissors" class="userThrows"/>
+		<img src="rock2.jpg" id="rock2" class="computerThrows"/>
+		<img src="paper2.jpg" id="paper2" class="computerThrows"/>
+		<img src="scissors2.jpg" id="scissors2" class="computerThrows"/>
+	
+		
+		<div id="startWindow" class="otherWindows">
+			<img src="mainScreen.jpg" id="player"/>
+			<img src="playbutton.jpg" id="playButton"/>
+			<img src="howtobutton.jpg" id="howToButton"/>
+		</div><!--startWindow-->
+
+		<div id="howToWindow" class="otherWindows">
+			<img src="howtowindow.jpg" id="howToWindowJpg"/>
+			<img src="playbutton.jpg" id="playButton2"/>
+			<img src="mainscreenbutton.jpg" id="menuButton"/>
+		</div><!--howToWindow-->
+		
+		<div id="loseWindow" class="otherWindows">
+			<img src="loseWindow.jpg" id="loseWindowJpg"/>
+			<img src="playAgainButton.jpg" id="losePlayAgainButton"/>
+			<img src="mainscreenbutton.jpg" id="menuButton2"/>
+		</div><!--loseWindow-->
+		
+		<div id="winWindow" class="otherWindows">
+			<img src="winWindow.jpg" id="winWindowJpg"/>
+			<img src="playAgainButton.jpg" id="winPlayAgainButton"/>
+			<img src="mainscreenbutton.jpg" id="menuButton3"/>
+		</div><!--winWindow-->
+
+<audio id="coin" preload="auto">
+	<source src="sound/coin.wav"/>
+</audio>
+
+<audio id="loser" preload="auto">
+	<source src="sound/loser.wav"/>
+</audio>
+
+<audio id="winner" preload="auto">
+	<source src="sound/winner.wav"/>
+</audio>
+		
+</div><!--gameWindow-->
+
+<script src="player.js"></script>
+</body>
+</html>
